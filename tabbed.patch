@@ -1,41 +1,28 @@
-*** /usr/lib/urxvt/perl/tabbed.orig	2011-02-21 20:04:23.000000000 -0500
---- /usr/lib/urxvt/perl/tabbed	2011-02-21 20:07:27.000000000 -0500
-***************
-*** 8,22 ****
-     my $text = " " x $ncol;
-     my $rend = [($self->{rs_tabbar}) x $ncol];
-  
-     my @ofs;
-  
-!    substr $text, 0, 7, "[NEW] |";
-!    @$rend[0 .. 5] = ($self->{rs_tab}) x 6;
-!    push @ofs, [0, 6, sub { $_[0]->new_tab }];
-  
-!    my $ofs = 7;
-     my $idx = 0;
-  
-     for my $tab (@{ $self->{tabs} }) {
-        $idx++;
-  
---- 8,28 ----
-     my $text = " " x $ncol;
-     my $rend = [($self->{rs_tabbar}) x $ncol];
-  
-+    # github.com/dbbolton
-+    #
-+    # This patch changes the "new tab button" to a simple, space-padded plus sign
-+ 
-     my @ofs;
-  
-!    substr $text, 0, 4, " + |";
-!    @$rend[0 .. 2] = ($self->{rs_tab}) x 3;
-!    push @ofs, [0, 3, sub { $_[0]->new_tab }];
-  
-!    my $ofs = 4;
-     my $idx = 0;
-  
-+    # end of changes
-+ 
-     for my $tab (@{ $self->{tabs} }) {
-        $idx++;
-  
+--- /usr/lib/urxvt/perl/tabbed.orig	2011-02-21 20:04:23.000000000 -0500
++++ /usr/lib/urxvt/perl/tabbed	2011-02-21 20:07:27.000000000 -0500
+@@ -8,15 +8,21 @@
+    my $text = " " x $ncol;
+    my $rend = [($self->{rs_tabbar}) x $ncol];
+ 
++   # github.com/dbbolton
++   #
++   # This patch changes the "new tab button" to a simple, space-padded plus sign
++
+    my @ofs;
+ 
+-   substr $text, 0, 7, "[NEW] |";
+-   @$rend[0 .. 5] = ($self->{rs_tab}) x 6;
+-   push @ofs, [0, 6, sub { $_[0]->new_tab }];
++   substr $text, 0, 4, " + |";
++   @$rend[0 .. 2] = ($self->{rs_tab}) x 3;
++   push @ofs, [0, 3, sub { $_[0]->new_tab }];
+ 
+-   my $ofs = 7;
++   my $ofs = 4;
+    my $idx = 0;
+ 
++   # end of changes
++
+    for my $tab (@{ $self->{tabs} }) {
+       $idx++;
+ 
