@@ -1,5 +1,5 @@
 --- /usr/lib/urxvt/perl/tabbed.orig	2011-05-09 21:33:14.000000000 -0400
-+++ /usr/lib/urxvt/perl/tabbed	2011-08-17 23:50:21.000000000 -0400
++++ /usr/lib/urxvt/perl/tabbed	2011-08-18 00:03:32.000000000 -0400
 @@ -8,17 +8,20 @@
     my $text = " " x $ncol;
     my $rend = [($self->{rs_tabbar}) x $ncol];
@@ -36,3 +36,102 @@
     }
  
     $self->{tabofs} = \@ofs;
+@@ -41,7 +47,7 @@
+    $self->ROW_r (0, $rend, 0, 0, $ncol);
+ 
+    $self->want_refresh;
+-}
++} ## end sub refresh
+ 
+ sub new_tab {
+    my ($self, @argv) = @_;
+@@ -70,7 +76,7 @@
+       -embed => $self->parent,
+       @argv,
+    ;
+-}
++} ## end sub new_tab
+ 
+ sub configure {
+    my ($self) = @_;
+@@ -88,7 +94,7 @@
+       0, $self->{tabheight},
+       $self->width, $self->height - $self->{tabheight}
+    );
+-}
++} ## end sub configure
+ 
+ sub on_resize_all_windows {
+    my ($self, $width, $height) = @_;
+@@ -128,7 +134,7 @@
+ 
+    # pass 2, delete all extraneous properties
+    $self->XDeleteProperty ($self->parent, $_) for keys %$current;
+-}
++} ## end sub copy_properties
+ 
+ sub make_current {
+    my ($self, $tab) = @_;
+@@ -152,7 +158,7 @@
+    $self->refresh;
+ 
+    ()
+-}
++} ## end sub make current
+ 
+ sub on_focus_in {
+    my ($self, $event) = @_;
+@@ -202,7 +208,7 @@
+    }
+ 
+    1
+-}
++} ## end sub on_button_release
+ 
+ sub on_motion_notify {
+    1
+@@ -233,7 +239,7 @@
+    $self->{rs_tab}    = urxvt::SET_COLOR (urxvt::DEFAULT_RSTYLE, $tabfg + 2, $tabbg + 2);
+ 
+    ()
+-}
++} ## end sub on_init
+ 
+ sub on_start {
+    my ($self) = @_;
+@@ -251,7 +257,7 @@
+    $self->new_tab (@argv);
+ 
+    ()
+-}
++} ## end on_start
+ 
+ sub on_configure_notify {
+    my ($self, $event) = @_;
+@@ -281,7 +287,7 @@
+    $self->make_current ($tab);
+ 
+    ()
+-}
++} ## end sub tab_start
+ 
+ sub tab_destroy {
+    my ($self, $tab) = @_;
+@@ -301,7 +307,7 @@
+    }
+ 
+    ()
+-}
++} ## end sub tab_destroy
+ 
+ sub tab_key_press {
+    my ($self, $tab, $event, $keysym, $str) = @_;
+@@ -337,7 +343,7 @@
+    }
+ 
+    ()
+-}
++} ## end sub tab_key_press
+ 
+ sub tab_property_notify {
+    my ($self, $tab, $event) = @_;
