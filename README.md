@@ -10,7 +10,7 @@ This repo contains some urxvt-related resources.
 
 This patch changes the tab bar to look like this:
 
-![Screenshot of the tab bar after patching](raw/master/example.png)
+![Screenshot of the tab bar after patching](http://github.com/dbb/urxvt-stuff/raw/master/example.png)
 
 In other words, it replaces `[NEW]` with `+` and starts the numbering at `0` rather than `1`.
 
