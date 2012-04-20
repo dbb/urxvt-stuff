@@ -18,7 +18,7 @@ To use it:
 
 ```
 git clone git@github.com:dbb/urxvt-stuff.git
-su -c 'patch -p0 urxvt-stuff/tabbed.patch' root
+su -c 'patch -p0 < urxvt-stuff/tabbed.patch' root
 ```
 You need root permissions to patch the file `/usr/lib/urxvt/perl/tabbed`. If the tabbed file is somewhere else, like `/usr/local`, just edit the patch file.
 
