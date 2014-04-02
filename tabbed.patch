@@ -1,6 +1,6 @@
---- /usr/lib/urxvt/perl/tabbed.orig	2011-05-09 21:33:14.000000000 -0400
-+++ /usr/lib/urxvt/perl/tabbed	2011-08-18 00:03:32.000000000 -0400
-@@ -8,17 +8,20 @@
+--- tabbed.orig	2013-10-30 06:17:56.000000000 -0400
++++ tabbed	2014-04-02 15:48:38.271035190 -0400
+@@ -44,17 +44,20 @@
     my $text = " " x $ncol;
     my $rend = [($self->{rs_tabbar}) x $ncol];
  
@@ -26,7 +26,7 @@
  
        my $act = $tab->{activity} && $tab != $self->{cur}
                  ? "*" : " ";
-@@ -33,6 +36,9 @@
+@@ -69,6 +72,9 @@
        push @ofs, [ $ofs, $ofs + $len, sub { $_[0]->make_current ($tab) } ];
  
        $ofs += $len + 1;
@@ -36,7 +36,7 @@
     }
  
     $self->{tabofs} = \@ofs;
-@@ -41,7 +47,7 @@
+@@ -77,7 +83,7 @@
     $self->ROW_r (0, $rend, 0, 0, $ncol);
  
     $self->want_refresh;
@@ -45,7 +45,7 @@
  
  sub new_tab {
     my ($self, @argv) = @_;
-@@ -70,7 +76,7 @@
+@@ -104,7 +110,7 @@
        -embed => $self->parent,
        @argv,
     ;
@@ -54,7 +54,7 @@
  
  sub configure {
     my ($self) = @_;
-@@ -88,7 +94,7 @@
+@@ -122,7 +128,7 @@
        0, $self->{tabheight},
        $self->width, $self->height - $self->{tabheight}
     );
@@ -63,7 +63,7 @@
  
  sub on_resize_all_windows {
     my ($self, $width, $height) = @_;
-@@ -128,7 +134,7 @@
+@@ -162,7 +168,7 @@
  
     # pass 2, delete all extraneous properties
     $self->XDeleteProperty ($self->parent, $_) for keys %$current;
@@ -72,7 +72,7 @@
  
  sub make_current {
     my ($self, $tab) = @_;
-@@ -152,7 +158,7 @@
+@@ -186,7 +192,7 @@
     $self->refresh;
  
     ()
@@ -81,7 +81,7 @@
  
  sub on_focus_in {
     my ($self, $event) = @_;
-@@ -202,7 +208,7 @@
+@@ -244,7 +250,7 @@
     }
  
     1
@@ -90,7 +90,7 @@
  
  sub on_motion_notify {
     1
-@@ -233,7 +239,7 @@
+@@ -275,7 +281,7 @@
     $self->{rs_tab}    = urxvt::SET_COLOR (urxvt::DEFAULT_RSTYLE, $tabfg + 2, $tabbg + 2);
  
     ()
@@ -99,7 +99,7 @@
  
  sub on_start {
     my ($self) = @_;
-@@ -251,7 +257,7 @@
+@@ -293,7 +299,7 @@
     $self->new_tab (@argv);
  
     ()
@@ -108,7 +108,7 @@
  
  sub on_configure_notify {
     my ($self, $event) = @_;
-@@ -281,7 +287,7 @@
+@@ -323,7 +329,7 @@
     $self->make_current ($tab);
  
     ()
@@ -117,7 +117,7 @@
  
  sub tab_destroy {
     my ($self, $tab) = @_;
-@@ -301,7 +307,7 @@
+@@ -343,7 +349,7 @@
     }
  
     ()
@@ -126,7 +126,7 @@
  
  sub tab_key_press {
     my ($self, $tab, $event, $keysym, $str) = @_;
-@@ -337,7 +343,7 @@
+@@ -379,7 +385,7 @@
     }
  
     ()
