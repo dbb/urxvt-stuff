@@ -1,0 +1,71 @@
+! dbb's URxvt settings
+! vim: set ft=xdefaults:
+
+! General settings ----------------------------------------------------------
+URxvt.perl-ext-common:      default,tabbed,matcher,searchable-scrollback
+URxvt*cutchars:             "()*,<>[]{}|'`
+URxvt*termName:             rxvt-unicode
+URxvt*urlLauncher:          firefox
+URxvt*matcher.button:       1
+URxvt.saveLines:            4096
+URxvt*scrollTtyOutput:      false
+URxvt*scrollWithBuffer:     true
+URxvt*scrollTtyKeypress:    true
+!URxvt*secondaryScroll:     false
+!URxvt*keysym.S-Prior:      ^[[5;2~
+!URxvt*keysym.S-Next:       ^[[6;2~
+URxvt*geometry:             96x30
+URxvt*highlightSelection:   true
+URxvt*transparent:          true
+URxvt*shading:              3
+!URxvt*tintColor:           #000000
+!URxvt*blurRadius:          5
+URxvt.scrollstyle:          plain
+URxvt.secondaryScroll:      true
+
+! Fonts ---------------------------------------------------------------------
+!URxvt*font:		xft:DejaVu Sans Mono:pixelsize=13
+!URxvt*boldFont:    xft:DejaVu Sans Mono:style=Bold:pixelsize=13
+URxvt*font:         -xos4-terminus-medium-r-normal-*-12-120-72-72-c-60-iso10646-1
+URxvt*boldfont:     -xos4-terminus-medium-r-normal-*-12-120-72-72-c-60-iso10646-1
+!URxvt*font:        -xos4-terminus-medium-r-normal-*-14-140-72-72-c-80-iso10646-1
+!URxvt*boldfont:    -xos4-terminus-medium-r-normal-*-14-140-72-72-c-80-iso10646-1
+
+! Colors --------------------------------------------------------------------
+URxvt*cursorColor:  #ff4f00
+URxvt*cursorBlink:  off
+URxvt*pointerColor: #ff4f00
+URxvt*background:   #000000
+URxvt*boldMode:     on
+URxvt*colorMode:    on
+URxvt*colorBDMode:  on
+URxvt*colorULMode:  on
+URxvt*underLine:    on
+URxvt*foreground:   #d4d4d4
+URxvt*color0:		#000000
+URxvt*color8:		#202020
+URxvt*color1:		#92000a
+URxvt*color9:		#c80815
+URxvt*color2:		#138808
+URxvt*color10:		#39ff14
+URxvt*color3:		#b8860b
+URxvt*color11:		#ef9b0f
+URxvt*color4:		#1034a6
+URxvt*color12:		#273be2
+URxvt*color5:		#533d80
+URxvt*color13:		#9966cc
+URxvt*color6:		#007ba7
+URxvt*color14:		#7df9ff
+URxvt*color7:		#e5e4e2
+URxvt*color15:		#D4D2CF
+URxvt*colorBD:		#ff4f00
+URxvt*colorUL:		#007fff
+!URxvt.underlineColor:   white
+URxvt*scrollColor:  #212121
+
+! Tabs ----------------------------------------------------------------------
+URxvt.pastableTabs:     false
+URxvt.tabbed.tabbar-fg: 7
+URxvt.tabbed.tabbar-bg: 0
+URxvt.tabbed.tab-fg:    15
+URxvt.tabbed.tab-bg:    12
